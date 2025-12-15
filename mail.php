@@ -3,7 +3,7 @@
 // ============================
 // CONFIG
 // ============================
-$to = "pavan@ymg-legal.com";      // WHO receives the email
+$to = " samson@abmdemand.com";      // WHO receives the email
 $subject = "Intelligent Automation Services for Modern Enterprises"; // email subject as per LP title
 
 $successPage = "thankyou.html"; // redirection after form submission
