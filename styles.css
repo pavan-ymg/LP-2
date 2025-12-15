@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.poppins-thin {
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+}
+
+/* Header */
+.header {
+    background: #fff;
+}
+
+.logo {
+    max-width: 200px;
+}
+
+/* Banner */
+.banner {
+    background: url('https://ymg-legal.com/Intelligent_Automation_Services_for_Modern_Enterprises/img/bg.jpg') center/cover no-repeat;
+}
+
+.title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    line-height: 1.2;
+}
+
+/* Cards */
+.content-card {
+    background-color: #F6F9FC;
+    border-radius: 25px;
+}
+
+.thumb-wrapper {
+    background-color: #7a8b89;
+    border-radius: 25px;
+}
+
+.thumb {
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.absract {
+    color: #333030;
+    font-size: 18px;
+}
+
+ul {
+    color: #333030;
+
+}
+
+/* Form */
+.form-card {
+    z-index: 0;
+    top: 130px;
+    background-color: #0D2665;
+    border-radius: 25px;
+}
+
+.form-control {
+    background-color: #ffffff;
+    border: none;
+    border-bottom: 1px solid #000;
+    border-radius: 4px;
+    border: none;
+    color: #000;
+}
+
+.form-control::placeholder {
+    color: #111111;
+}
+
+.consent {
+    font-size: 0.875rem;
+}
+
+.submit-btn {
+    font-weight: 700;
+}
+
+/* Footer */
+.footer {
+    background-color: #0D2565;
+    color: #fff;
+}
