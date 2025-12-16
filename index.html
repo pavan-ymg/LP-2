@@ -17,11 +17,38 @@
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Raleway:wght@700&display=swap"
     rel="stylesheet">
 
+  <!-- Favicon -->
+  <link rel="icon" href="https://ymg-legal.com/Intelligent_Automation_Services_for_Modern_Enterprises/img/favicon.png"
+    sizes="192x192">
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
 
-  <link rel="icon" href="https://ymg-legal.com/Intelligent_Automation_Services_for_Modern_Enterprises/img/favicon.png"
-    sizes="192x192">
+  <!-- CSS phone field-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+
+  <style>
+    /* Make intl-tel-input match Bootstrap form-control */
+    .iti {
+      width: 100%;
+    }
+
+    .iti input.form-control {
+      height: 48px;
+      /* match other inputs */
+      padding-left: 90px;
+      /* space for flag + code */
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .iti--separate-dial-code .iti__selected-flag {
+      background-color: #fff;
+      color: black;
+      border-right: 1px solid #ced4da;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -107,9 +134,34 @@
                 <input class="form-control" type="email" name="email" placeholder="Email" required>
               </div>
 
+              <input type="hidden" name="full_phone" id="full_phone">
               <div class="form-group">
-                <input class="form-control" type="number" name="phone" placeholder="Phone Number" required>
+                <input class="form-control" id="phone" type="tel" name="phone" placeholder="Phone Number" required>
               </div>
+
+              <!-- JS phone field-->
+              <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
+
+              <script>
+                const phoneInput = document.querySelector("#phone");
+                const iti = window.intlTelInput(phoneInput, {
+                  initialCountry: "auto",
+                  geoIpLookup: function (callback) {
+                    fetch("https://ipapi.co/json/")
+                      .then(res => res.json())
+                      .then(data => callback(data.country_code))
+                      .catch(() => callback("us"));
+                  },
+                  separateDialCode: true
+                });
+
+                phoneInput.form.addEventListener("submit", function () {
+                  document.getElementById("full_phone").value = iti.getNumber();
+                });
+              </script>
+
 
               <div class="form-group">
                 <input class="form-control" type="text" name="company" placeholder="Company Name" required>
